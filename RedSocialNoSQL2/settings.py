@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_countries',
+    'usuario.apps.UsuarioConfig',
+    'comentarios.apps.ComentariosConfig',
+    'publicacion.apps.PublicacionConfig',
+    'multimedia_publicacion.apps.MultimediaPublicacionConfig',
+    'reaccion.apps.ReaccionConfig',
+
 ]
 
 MIDDLEWARE = [
