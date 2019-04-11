@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'RedSocialNoSQL2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'ProyectoFinalBaseDatos',
+        'NAME': 'RedSocialNoSql',
         'HOST' : 'mongodb+srv://oliverjpr1:<FYlwG1rbqtParhb4>@mongodb01-xg7uz.mongodb.net/test?retryWrites=true',
         'USER': 'oliverjpr1',
         'PASSWORD': 'FYlwG1rbqtParhb4',
