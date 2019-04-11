@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'publicacion.apps.PublicacionConfig',
     'multimedia_publicacion.apps.MultimediaPublicacionConfig',
     'reaccion.apps.ReaccionConfig',
+    'hilo_comentario.apps.HiloComentarioConfig',
+    'seguidores.apps.SeguidoresConfig',
 
 ]
 
