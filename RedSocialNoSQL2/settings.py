@@ -76,8 +76,11 @@ WSGI_APPLICATION = 'RedSocialNoSQL2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'ProyectoFinalBaseDatos',
+        'HOST' : 'mongodb+srv://oliverjpr1:<FYlwG1rbqtParhb4>@mongodb01-xg7uz.mongodb.net/test?retryWrites=true',
+        'USER': 'oliverjpr1',
+        'PASSWORD': 'FYlwG1rbqtParhb4',
     }
 }
 
