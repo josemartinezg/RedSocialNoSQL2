@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- ==============================================
+	 News Feed Section
+	 =============================================== -->
+	 <section class="profile-two">
+	  <div class="container-fluid">
+	   <div class="row">
+       {% for usuario in usuario%}
+       {% if usuario.nombre == "Oliver" %}
+		<div class="col-lg-3">
+         <aside id="leftsidebar" class="sidebar">
+		  <ul class="list">
+           <li>
+			<div class="user-info">
+			 <div class="image">
+		      <img src="{{ usuario.foto_perfil.url }}" >
+			   <span class="online-status online"></span>
+
+			 </div>
+		     <div class="detail">
+                <h4>{{ usuario.nombre }}</h4>
+                <small> @{{ usuario.nombre_usuario }}</small>
+			 </div>
+
+			 <div class="row">
+			  <div class="col-12">
+
+
+			  </div>
+			 </div>
+			</div>
+           </li>
+           <li>
+            <small class="text-muted"><a href="{% url 'seguidores' %}">2456 Followers <em class="fa fa-angle-right pull-right"></em></a> </small><br/>
+            <small class="text-muted"><a href="{% url 'seguidores' %}">456 Following <em class="fa fa-angle-right pull-right"></em></a> </small>
+            <hr>
+            <small class="text-muted">Bio: </small>
+            <p>{{ usuario.descripcion }}</p>
+            <hr>
+            <small class="text-muted">Correo Electronico: </small>
+            <p>{{ usuario.correo_electronico  }}</p>
+
+            <hr>
+           </li>
+          </ul>
+         </aside>
+		</div><!--/ col-lg-3-->
+
+		<div class="col-lg-6" style="background: #fff;">
+
+       {% for publicacion in publicacion%}
+            {% if usuario.id == publicacion.id_perfil_id %}
+
+		 <div class="row">
+		  <div class="col-lg-6">
+			 <a href="#myModal" data-toggle="modal">
+
+			 <div class="explorebox"
+			   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('{{ publicacion.contenido.url }}') no-repeat;
+					  background-size: cover;
+					  background-position: center center;
+					  -webkit-background-size: cover;
+					  -moz-background-size: cover;
+					  -o-background-size: cover;">
+			  <div class="explore-top">
+			   <div class="explore-like"><i class="fa fa-heart"></i> <span>312</span></div>
+			   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+			  </div>
+			 </div>
+			 </a>
+		  </div>
+
+
+                        {% endif %}
+                    {% endfor%}
+                {% endif %}
+            {% endfor%}
+
+		</div>
+		<div class="col-lg-3">
+		</div>
+
+       </div><!--/ row-->
+	  </div><!--/ container -->
+	 </section><!--/ profile -->
+
+	 <!-- ==============================================
+	 Modal Section
+	 =============================================== -->
+
+    {% for usuario in usuario%}
+       {% if usuario.nombre == "Oliver" %}
+           {% for publicacion in publicacion%}
+            {% if publicacion.id_perfil_id == usuario.id %}
+     <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+       <div class="modal-content">
+        <div class="modal-body">
+         <div class="row">
+          <div class="col-md-8 modal-image">
+           <img class="img-responsive" src="{{ publicacion.contenido.url }}" alt="Image"/>
+          </div><!--/ col-md-8 -->
+          <div class="col-md-4 modal-meta">
+           <div class="modal-meta-top">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			 <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+			</button><!--/ button -->
+            <div class="img-poster clearfix">
+             <a href=""><img class="img-responsive img-circle" src="{{ usuario.foto_perfil.url }}" alt="Image"/></a>
+             <strong><a href="">{{ usuario.nombre_usuario }}</a></strong>
+             <span>{{ publicacion.hora_publicado | timesince }}</span><br/>
+		     <a href="" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
+            </div><!--/ img-poster -->
+                <ul class="img-comment-list">
+
+             <li>
+              <div class="comment-img">
+               <img src="assets/img/users/17.jpeg" class="img-responsive img-circle" alt="Image"/>
+              </div>
+              <div class="comment-text">
+               <strong><a href="">Anthony McCartney</a></strong>
+               <p>{{ comments.comentario }}</p> <span class="date sub-text">{{ comments.comentario | timesince }}/span>
+              </div>
+             </li><!--/ li -->
+
+
+
+
+                        {% endif %}
+                      {% endfor%}
+                {% endif %}
+            {% endfor%}
+
+
+
+
+
+
+            <div class="modal-meta-bottom">
+			 <ul>
+			  <li><a class="modal-like" href="#"><i class="fa fa-heart"></i></a><span class="modal-one"> 786,286</span> |
+			      <a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
+			  <li>
+			   <span class="thumb-xs">
+				<img class="img-responsive img-circle" src="assets/img/users/13.jpeg" alt="Image">
+			   </span>
+			   <div class="comment-body">
+				 <input class="form-control input-sm" type="text" placeholder="Write your comment...">
+			   </div><!--/ comment-body -->
+              </li>
+             </ul>
+            </div><!--/ modal-meta-bottom -->
+
+           </div><!--/ modal-meta-top -->
+          </div><!--/ col-md-4 -->
+
+         </div><!--/ row -->
+        </div><!--/ modal-body -->
+
+       </div><!--/ modal-content -->
+      </div><!--/ modal-dialog -->
+     </div><!--/ modal -->
+{% endblock %}

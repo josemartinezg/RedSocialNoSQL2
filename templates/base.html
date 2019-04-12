@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" href="{% static 'css/demos/photo.css' %} " rel="stylesheet" />
+
+</head>
+<body>
+<!--NavBar-->
+{% include 'partials/_navbar.html' %}
+{% block content %} {% endblock %}
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
+	<script src="{% static 'js/base.js'%}"></script>.
+    <script src="{% static 'plugins/slimscroll/jquery.slimscroll.js'%}"></script>.
+
+</body>
+</html>

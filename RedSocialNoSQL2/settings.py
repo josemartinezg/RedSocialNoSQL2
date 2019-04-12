@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_countries',
     'usuario.apps.UsuarioConfig',
-    'comentarios.apps.ComentariosConfig',
+    'comments.apps.CommentsConfig',
     'publicacion.apps.PublicacionConfig',
     'multimedia_publicacion.apps.MultimediaPublicacionConfig',
     'reaccion.apps.ReaccionConfig',
@@ -130,4 +131,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+MEDIA_URL = '/photos/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'RedSocialNoSQL2/static')
+]
+

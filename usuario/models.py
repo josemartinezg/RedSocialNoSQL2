@@ -32,5 +32,6 @@ class Usuario(models.Model):
     fecha_ingreso = models.DateTimeField(default=datetime.now, blank=True)
 
 
+
 def _str_(self):
-    return self.name
+    return self.nombre_usuario
